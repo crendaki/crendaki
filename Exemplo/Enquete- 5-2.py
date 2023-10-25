@@ -1,5 +1,6 @@
 votos = [] 
 contador = 0
+porcentagem = 0
 
 #receba a camisa
 while True: 
@@ -16,12 +17,18 @@ print("\n Quantidade de votos: ", len(votos),"\n")
 print("\n Qual o melhor jogador? ")
 
 QtdaVotosPorcamisa = {}
+camisas = 0
 
 for escolha in votos:
     if escolha in QtdaVotosPorcamisa:
         QtdaVotosPorcamisa[escolha] +=1
     else:    
         QtdaVotosPorcamisa[escolha] =1
+        porcentagem = (camisas / len(votos) *100)        
 
 for escolha, quantidade in QtdaVotosPorcamisa.items():       
-    print('O jogador com a camisa numero', escolha, 'recebeu: ', quantidade ) 
+    print('O jogador com a camisa numero', escolha, 'recebeu: ', quantidade, '% : ', porcentagem ) 
+
+
+               
+
