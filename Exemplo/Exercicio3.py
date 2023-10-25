@@ -1,0 +1,3 @@
+
+int(imput(nota))
+
