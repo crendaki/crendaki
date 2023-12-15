@@ -1,28 +1,32 @@
 class bomba:
-    def __init__(self, combustivel=("gasolina", "alcool"), valorg=5.50, valora=4.50, quantidade=0) -> None:
+    def __init__(self, combustivel, valorg, quantidade) -> None:
+        self.combustivel=combustivel
         self.valorg= valorg
-        self.valora=valora
         self.quantidade= quantidade
-        self.combustivel=("gasolina", "alcool")
         pass
 
 #função para calcular o valor total
     def calcular_valor(self):
-        comb=int(input("qual o tipo {}? :  ", [gasolina, alcool])) #estou pedindo o valor da quantidade
+        comb=input("qual o tipo?:  ") #estou pedindo o valor da quantidade
         self.combustivel=comb
-        qtd= int(input("Quantos Litros {}?:  "))
+       
+        qtd= int(input("Quantos Litros?:  "))
         self.quantidade= qtd
         
         if comb=="gasolina":
-                calcular_valor= float(sel.valorg *self.quantidade) 
+           self.valorg= 5.50
+           calcular_valor=float(self.valorg * self.quantidade)
+       
+        elif comb=="alcool":
+            self.valorg= 1.00
+            calcular_valor=float(self.valorg * self.quantidade)
         
-        else:
-           
-           calcular_valor=float(self.valora * self.quantidade)         
-    
-      
+        print("valor é: ", calcular_valor)
+              
 def main(): 
     
-bomb = bomba(5.5, 0)
-bomb.calcular_valor() 
+    bomb= bomba("gasolina", 5.50, 0)
+    bomb.calcular_valor()
+     
     
+main()

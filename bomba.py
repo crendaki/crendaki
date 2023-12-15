@@ -1,5 +1,5 @@
 class bomba:
-    def __init__(self, tipo='gasolina', valor=5.50, quantidade=0) -> None:
+    def __init__(self, tipo='gasolina', valor=0, quantidade=0) -> None:
         self.tipo= tipo
         self.valor= valor
         self.quantidade= quantidade
@@ -13,6 +13,6 @@ class bomba:
         print(valor_total) #imprimi o valor
         return valor_total
     
-bomb = bomba(5.5, 0)
+bomb = bomba(5.5)
 bomb.calcular_valor() 
     
