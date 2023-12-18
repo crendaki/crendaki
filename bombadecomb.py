@@ -57,14 +57,25 @@ class bomba:
 
     def trocar_preco(self):
                   
-          mudar_preco=input("O preço do combustivel vai alterar {}?: [s/n]")
-          mudar_preco = mudar_preco[0].lower()
+        mudar_preco=input("O preço do combustivel vai alterar {}?: [s/n]")
+        mudar_preco = mudar_preco[0].lower()
             
-          if mudar_preco =="s":
+        if mudar_preco =="s":
             novo_preco=float(input("Novo Preço: ")) 
             self.valorg=novo_preco    
 
-          print("Novo preço é: ", novo_preco)          
+        print("Novo preço é: ", novo_preco)   
+
+    def trocar_tipo(self):
+        trocar_tipo= input("O tipo do combustivel vai alterar {}?: [s/n]")     
+        trocar_tipo= trocar_tipo[0].lower()
+
+        if trocar_tipo =="s":
+            novo_tipo=input("Novo Tipo: ")
+            self.combustivel=novo_tipo
+
+        print("Novo tipo é: ", novo_tipo)       
+                
 
 
 def main(): 
@@ -73,6 +84,7 @@ def main():
     bomb.trocar_preco()  
     bomb.calcular_litros()
     bomb.calcular_valor()  
+    bomb.trocar_tipo()
     
      
 main()
