@@ -88,6 +88,57 @@ descricao= requisicao_dic['weather'][0]['description']
 temperatura = requisicao_dic['main']['temp'] - 273.15
 top = [[sg.Text(f"Temperatura em Brasilia {temperatura:.2f}"C", size=(50, 1),justification = 'c', pad = BPAD_TOP, font='Any 20')],
             [sg.T(f'{i*25}-{i*34}') for i in range(7), ]
+
+
+block_2 = [[sg.Text('Entrar', font='Any 20')],
+           [sg.Text('\t Pop-up', font='Any 20')],
+           [sg.Input(Key = '-user-'), sg.Text('Nome do Usuário')],
+           [sg.Button('Login'), sg.Button('Cancelar')]]
+
+block_3 =[[sg.Text('Estatística', font='Any 20')],
+          [sg.Text('\t Gráfico', font='Any 10')],
+          [sg.image(data= sg.Defautl_Base64_Icon')],
+          [sg.Button('Graf'), sg.Button('Finalizar')]]
+
+block_4 =[[sg.Text('Cadastro', font= 'Any 20')],
+          [sg.OptionMenu(values= ('Java', 'PHP', Python), default_value='Curso', k='-Option Menu-')]
+          [sg.Slider(orientation='h', key='-SKIDER-')],
+          [sg.Button(iamge_data= sg.Defautl_Base64_Icon, KEY='-LOGO-'), sg.Text('\t Inputs')],
+          [sg.Input(key='-nome-'), sg.Text('Nome do Contato')],
+          [sg.Input(Key='-email-'),sg.Text('Endereço')],
+          [sg.Input(Key='-telefone-'), sg.Text('Telefone')],
+          [sg.Checkbox('Cadastro', default=True, k='-CB-'),
+              sg.Radio('Masc', 'RadioDemo', default= True, size(10,1), k='-R1-'), sg.Radio('Fem', "RadioDemo", default= True, size=(10,1), k='-R2-'),
+              sg.Combo(values=('Logica', 'crud', 'WEB'), default_value='Modulo', readonly= True, k='-Combo-')],
+          [sg.Button('Cadastro'), sg.Button('Exit')]   
+Layout = [[sg.Column(top_banner, size= (960, 60), pad= (0,0), background_color= Dark_header_Color)],
+          [sg.Column(top, size=(920, 90), pad= BPAD_TOP)],
+          [sg.Column([sg.Column(block_2, size=(450, 150), pad=BPAD_LEFT_INSIDE)],
+                     [sg.Column(block_3, size=(450, 150), pad=BPAD_LEFT_INSIDE)]], PAD=BPAD_LEFT, background_color= BRODER_COLOR),
+          sg.Column(block_4, size=(450,320), pad=BPAD_RIGHT)]]
+window= sg.Window('Dasboard PySimpleGui-Style', layout, margins=(0,0), background_color= BORDER_COLOR, no_titlebar= True, grab_anywhere= True)          
+
+
+ while True:
+
+      event, values = window.read()
+      if event == sg.Win_closed or event =='Exit' or event =='Finalizar':
+         break
+      elif event =='Graf':
+          grafico()
+      elif event == 'Login':
+          sg.popup('Bem vindo', values['-user-'], image= sg.Emoji_Base64_happy_joy, keep_on_top= True)
+      elif event =="Cadastro":
+        banco()
+window.close()        
+
+
+
+
+
+
+
+
                                      
       
 
